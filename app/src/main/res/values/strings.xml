@@ -20,4 +20,11 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="muokkaa_nime">Muokkaa nimeä</string>
+    <string name="muuta_salasanaa">Muuta Salasanaa</string>
+    <string name="vaihda_oikeuksia">Vaihda oikeuksia</string>
+    <string name="poista_j_seni">Poista jäseniä</string>
+    <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
+    <string name="ryhm_n_id">ryhmän id</string>
+    <string name="ryhm">Ryhmä</string>
 </resources>

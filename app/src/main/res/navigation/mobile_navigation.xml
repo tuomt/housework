@@ -22,4 +22,9 @@
         android:name="com.example.housework.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/EditGroup"
+        android:name="com.example.housework.ui.Group.EditGroup"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/edit_group_fragment" />
 </navigation>

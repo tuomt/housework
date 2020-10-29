@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Group.EditGroup">
+
+    <Button
+        android:id="@+id/changename"
+        android:layout_width="97dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="287dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="631dp"
+        android:text="@string/muokkaa_nime"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/DeleteUsers"
+        android:layout_width="166dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="610dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="78dp"
+        android:text="@string/muuta_salasanaa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deleteUsers2"
+        android:layout_width="166dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="546dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="143dp"
+        android:text="@string/vaihda_oikeuksia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deleteUsers"
+        android:layout_width="166dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="672dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/poista_j_seni"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/users"
+        android:layout_width="374dp"
+        android:layout_height="318dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="278dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/groupname"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="631dp"
+        android:text="@string/ryhm_n_nimi_t_ss"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/changename"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/groupname2"
+        android:layout_width="256dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="472dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="205dp"
+        android:text="@string/ryhm_n_id"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
