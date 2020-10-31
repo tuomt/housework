@@ -10,21 +10,29 @@
         android:name="com.example.housework.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.housework.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.housework.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/EditGroup"
         android:name="com.example.housework.ui.Group.EditGroup"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/edit_group_fragment" />
+    <fragment
+        android:id="@+id/Create_task"
+        android:name="com.example.housework.ui.task.CreateTask"
+        android:label="@string/Create_Task"
+        tools:layout="@layout/create_task_fragment" />
+
+    <fragment
+        android:id="@+id/mytasks"
+        android:name="com.example.housework.ui.task.MyTasks"
+        android:label="@string/MyTasks"
+        tools:layout="@layout/mytask_fragment" />
+
+    <fragment
+        android:id="@+id/search_task"
+        android:name="com.example.housework.ui.task.SearchTask"
+        android:label="Searchtask"
+        tools:layout="@layout/search_task_fragment" />
+
+
+
 </navigation>

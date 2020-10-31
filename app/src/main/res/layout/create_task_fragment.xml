@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.task.CreateTask">
+
+    <TextView
+        android:id="@+id/txttaskname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="627dp"
+        android:text="@string/teht_v_n_nimi"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btntekijat"
+        android:layout_width="251dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="44dp"
+
+
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="503dp"
+        android:text="@string/Tekijät"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txttaskname"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginBottom="417dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btntoistuvus"
+        android:layout_width="272dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="80dp"
+        android:text="@string/toistuvus"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <Button
+        android:id="@+id/btnvanhatehtava"
+        android:layout_width="301dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginBottom="27dp"
+        android:text="@string/ota_k_ytt_n_vanha_teht_v"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/tasktextmultiline"
+        android:layout_width="276dp"
+        android:layout_height="168dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btntoistuvus" />
+</androidx.constraintlayout.widget.ConstraintLayout>
