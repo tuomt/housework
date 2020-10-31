@@ -27,4 +27,20 @@
     <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
     <string name="ryhm_n_id">ryhmän id</string>
     <string name="ryhm">Ryhmä</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="aloitusruutu">Aloitusruutu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="voit_tehd_t_st_uuden_ryhm_n">Voit tehdä tästä uuden ryhmän</string>
+    <string name="liity_valmiiseen_ryhm_n">Liity valmiiseen ryhmään</string>
+    <string name="luo_ryhm">Luo ryhmä</string>
+    <string name="liity_kotisi_ryhm_n_kirjoita_ryhm_n_nimi_ja_salasana">Liity kotisi ryhmään. Kirjoita ryhmän nimi ja salasana.</string>
+    <string name="name">Name</string>
+    <string name="liity">Liity</string>
+    <string name="luo_uusi_k_ytt_j">Luo uusi käyttäjä</string>
+    <string name="liity_valmiiseen_ryhm_n">Liity valmiiseen ryhmään</string>
+
+
 </resources>
