@@ -57,12 +57,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btntoistuvus"
+        android:id="@+id/btnToistuvuus"
         android:layout_width="272dp"
         android:layout_height="97dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="80dp"
-        android:text="@string/toistuvus"
+        android:text="@string/toistuvuus"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
@@ -88,5 +88,5 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btntoistuvus" />
+        app:layout_constraintTop_toBottomOf="@+id/btnToistuvuus" />
 </androidx.constraintlayout.widget.ConstraintLayout>
