@@ -22,7 +22,7 @@ public class CreateUser extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         createUserViewModel =
                 ViewModelProviders.of(this).get(CreateUserViewModel.class);
-        View root = inflater.inflate(R.layout.create_user_fragment, container, false);
+        View root = inflater.inflate(R.layout.fragment_create_user, container, false);
         final TextView textView = root.findViewById(R.id.text_createuser);
         createUserViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

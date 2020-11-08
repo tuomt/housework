@@ -12,27 +12,28 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/EditGroup"
-        android:name="com.example.housework.ui.group.EditGroup"
-        android:label="Ryhmän muokkaus"
-        tools:layout="@layout/edit_group_fragment" />
+        android:id="@+id/mytasks"
+        android:name="com.example.housework.ui.task.MyTasks"
+        android:label="omat tehtävät"
+        tools:layout="@layout/fragment_my_tasks" />
+
     <fragment
         android:id="@+id/Create_task"
         android:name="com.example.housework.ui.task.CreateTask"
         android:label="@string/Create_Task"
-        tools:layout="@layout/create_task_fragment" />
-
-    <fragment
-        android:id="@+id/mytasks"
-        android:name="com.example.housework.ui.task.MyTasks"
-        android:label="@string/MyTasks"
-        tools:layout="@layout/mytask_fragment" />
+        tools:layout="@layout/fragment_create_task" />
 
     <fragment
         android:id="@+id/search_task"
         android:name="com.example.housework.ui.task.SearchTask"
         android:label="Searchtask"
-        tools:layout="@layout/search_task_fragment" />
+        tools:layout="@layout/fragment_search_tasks" />
+
+    <fragment
+        android:id="@+id/EditGroup"
+        android:name="com.example.housework.ui.group.EditGroup"
+        android:label="Ryhmän muokkaus"
+        tools:layout="@layout/fragment_edit_group" />
 
 
 

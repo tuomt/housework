@@ -26,9 +26,9 @@
     <string name="poista_j_seni">Poista jäseniä</string>
     <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
     <string name="ryhm_n_id">ryhmän id</string>
-    <string name="ryhm">Ryhmä</string>
+
     <string name="button">Button</string>
-    <string name="name">Name</string>
+
     <string name="aloitusruutu">Aloitusruutu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -40,7 +40,6 @@
     <string name="name">Name</string>
     <string name="liity">Liity</string>
     <string name="luo_uusi_k_ytt_j">Luo uusi käyttäjä</string>
-    <string name="liity_valmiiseen_ryhm_n">Liity valmiiseen ryhmään</string>
 
 
     <string name="Tekijät">tekijät</string>
@@ -50,7 +49,6 @@
     <string name="create_task">create_task</string>
     <string name="Create_Task">Create task</string>
     <string name="MyTasks">mytasks</string>
-    <string name="omat_teht_v_t">Omat tehtävät</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -141,5 +139,16 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="toistuvuus">toistuvuus</string>
+    <string name="luo_teht_v">Luo tehtävä</string>
+    <string name="ryhm">Ryhmä</string>
+    <string name="omat_teht_v_t">Omat tehtävät</string>
+    <string name="etsi_teht_vi">Etsi tehtäviä</string>
+    <string name="terve">Terve</string>
+    <string name="teht_v_ni">Tehtäväni</string>
+    <string name="testi">testi</string>
+    <string name="anna_hakuehdot">Anna hakuehdot</string>
+    <string name="etsi">Etsi</string>
+    <string name="_1_3_kiireys">1-3 Kiireys</string>
+
 
 </resources>

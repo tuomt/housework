@@ -1,4 +1,4 @@
-package com.example.housework.ui.group;
+package com.example.housework.ui.task;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.housework.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateGroup#newInstance} factory method to
+ * Use the {@link MyTasks#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateGroup extends Fragment {
+public class MyTasks extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class CreateGroup extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CreateGroup() {
+    public MyTasks() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class CreateGroup extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateGroup.
+     * @return A new instance of fragment BlankFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreateGroup newInstance(String param1, String param2) {
-        CreateGroup fragment = new CreateGroup();
+    public static MyTasks newInstance(String param1, String param2) {
+        MyTasks fragment = new MyTasks();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class CreateGroup extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_group, container, false);
+        return inflater.inflate(R.layout.fragment_my_tasks, container, false);
     }
 }

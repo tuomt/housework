@@ -24,7 +24,7 @@ public class EditGroup extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         EditGroupViewModel =
                 ViewModelProviders.of(this).get(EditGroupViewModel.class);
-        View root = inflater.inflate(R.layout.edit_group_fragment, container, false);
+        View root = inflater.inflate(R.layout.fragment_edit_group, container, false);
         final TextView textView = root.findViewById(R.id.groupname);
         EditGroupViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

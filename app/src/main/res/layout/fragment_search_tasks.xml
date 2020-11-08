@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
   android:orientation="vertical"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     tools:context=".ui.task.SearchTask">
 
@@ -22,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Anna hakuehdot"
+        android:text="@string/anna_hakuehdot"
         android:textColor="#B82525"
         android:textColorLink="#F81E1E"
         android:textSize="24sp" />
@@ -38,7 +37,7 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="@string/_1_3_kiireys" />
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -59,7 +58,7 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hae"
+        android:text="@string/etsi"
         android:textSize="20sp" />
 
     <CalendarView
