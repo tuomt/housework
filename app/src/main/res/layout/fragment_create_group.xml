@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnetsi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/liity_valmiiseen_ryhm_n"
