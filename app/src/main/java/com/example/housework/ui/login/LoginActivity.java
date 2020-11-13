@@ -2,9 +2,12 @@ package com.example.housework.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,8 +30,10 @@ import android.widget.Toast;
 
 import com.example.housework.MainActivity;
 import com.example.housework.R;
+import com.example.housework.ui.group.JoinGroup;
 import com.example.housework.ui.login.LoginViewModel;
 import com.example.housework.ui.login.LoginViewModelFactory;
+import com.example.housework.ui.task.SearchResults;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -123,6 +130,31 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+Button Btn1;
+
+    //this public view is made for the fragment to fragment transfer t.aaro
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.activity_login, container, false);
+        Btn1 = v.findViewById(R.id.Btn_Create_user);
+        Btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateUser createuser = new CreateUser();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.drawer_layout, createuser);
+                transaction.addToBackStack(null);
+                int commit = transaction.commit();
+
+
+            }
+        });
+        return v;
+    }
+
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
