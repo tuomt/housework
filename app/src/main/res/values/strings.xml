@@ -27,7 +27,7 @@
     <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
     <string name="ryhm_n_id">ryhmän id</string>
 
-    <string name="button">Button</string>
+
 
     <string name="aloitusruutu">Aloitusruutu</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -44,7 +44,7 @@
 
     <string name="Tekijät">tekijät</string>
     <string name="toistuvus">Toistuvus</string>
-    <string name="teht_v_n_nimi">Tehtävän nimi</string>
+
     <string name="ota_k_ytt_n_vanha_teht_v">Ota käyttöön vanha tehtävä</string>
     <string name="create_task">create_task</string>
     <string name="Create_Task">Create task</string>
@@ -149,6 +149,10 @@
     <string name="anna_hakuehdot">Anna hakuehdot</string>
     <string name="etsi">Etsi</string>
     <string name="_1_3_kiireys">1-3 Kiireys</string>
+    <string name="muokka_teht_v">Muokka tehtävä</string>
+    <string name="teht_v_n_nimi">Tehtävän nimi</string>
+    <string name="haku_tulos">Haku Tulos</string>
+    <string name="button">Button</string>
 
 
 </resources>
