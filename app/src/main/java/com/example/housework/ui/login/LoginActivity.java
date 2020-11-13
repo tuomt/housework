@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
 Button Btn1;
 
-    //this public view is made for the fragment to fragment transfer t.aaro
+    //this public view is made for the fragment to fragment transfer a t.aaro
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
