@@ -153,10 +153,6 @@
     <string name="teht_v_n_nimi">Tehtävän nimi</string>
     <string name="haku_tulos">Haku Tulos</string>
     <string name="button">Button</string>
-    <string name="nimesi">nimesi</string>
-    <string name="luo_uusi_k_ytt_j_kirjoittamalla_lempinimesi_t_h_n">Luo uusi käyttäjä kirjoittamalla lempinimesi tähän</string>
-    <string name="luo">luo</string>
-    <string name="tai_liitty_ryhm_n_vanhalla_k_ytt_j_l">tai liitty ryhmään vanhalla käyttäjälä</string>
 
 
 </resources>
