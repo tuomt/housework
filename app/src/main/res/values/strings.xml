@@ -1,14 +1,24 @@
 <resources>
     <string name="app_name">Housework</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+
+    <string name="action_login">Kirjaudu sisään</string>
+    <string name="prompt_user_email">Sähköposti</string>
+    <string name="prompt_user_password">Salasana</string>
+    <string name="action_create_user">Luo käyttäjä</string>
+    <string name="action_join_group">Liity ryhmään</string>
+    <string name="prompt_group_name">Ryhmän nimi</string>
+    <string name="prompt_group_password">Ryhmän salasana</string>
+    <string name="prompt_user_name">Nimi</string>
+    <string name="action_create_group">Luo ryhmä</string>
+    <string name="header_create_group">Luo ryhmä</string>
+    <string name="header_join_group">Liity ryhmään</string>
+    <string name="action_join_existing_group">Liity valmiiseen ryhmään</string>
+    <string name="header_join_group_select">Luo uusi alikäyttäjä</string>
+    <string name="header2_join_group_select">Tai liity olemassa olevana käyttäjänä</string>
+
+
+    <!-- Strings related to main -->
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,10 +26,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
     <string name="muokkaa_nime">Muokkaa nimeä</string>
     <string name="muuta_salasanaa">Muuta Salasanaa</string>
     <string name="vaihda_oikeuksia">Vaihda oikeuksia</string>
@@ -27,20 +37,9 @@
     <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
     <string name="ryhm_n_id">ryhmän id</string>
 
-
-
     <string name="aloitusruutu">Aloitusruutu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="voit_tehd_t_st_uuden_ryhm_n">Voit tehdä tästä uuden ryhmän</string>
-    <string name="liity_valmiiseen_ryhm_n">Liity valmiiseen ryhmään</string>
-    <string name="luo_ryhm">Luo ryhmä</string>
-    <string name="liity_kotisi_ryhm_n_kirjoita_ryhm_n_nimi_ja_salasana">Liity kotisi ryhmään. Kirjoita ryhmän nimi ja salasana.</string>
-    <string name="name">Name</string>
-    <string name="liity">Liity</string>
-    <string name="luo_uusi_k_ytt_j">Luo uusi käyttäjä</string>
-
 
     <string name="Tekijät">tekijät</string>
     <string name="toistuvus">Toistuvus</string>
@@ -153,10 +152,9 @@
     <string name="teht_v_n_nimi">Tehtävän nimi</string>
     <string name="haku_tulos">Haku Tulos</string>
     <string name="button">Button</string>
-    <string name="nimesi">nimesi</string>
-    <string name="luo_uusi_k_ytt_j_kirjoittamalla_lempinimesi_t_h_n">Luo uusi käyttäjä kirjoittamalla lempinimesi tähän</string>
-    <string name="luo">luo</string>
-    <string name="tai_liitty_ryhm_n_vanhalla_k_ytt_j_l">tai liitty ryhmään vanhalla käyttäjälä</string>
+    <string name="txt_login_failed">Kirjautuminen epäonnistui</string>
+    <string name="txt_invalid_username">Virheellinen käyttäjätunnus</string>
+    <string name="txt_invalid_password">Virheellinen salasana</string>
 
 
 </resources>
