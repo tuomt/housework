@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.housework.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_createUser"
+            app:destination="@id/createUser" />
+        <action
+            android:id="@+id/action_loginFragment_to_joinGroup"
+            app:destination="@id/joinGroup" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUser"
+        android:name="com.example.housework.ui.login.CreateUser"
+        android:label="fragment_create_user"
+        tools:layout="@layout/fragment_create_user" />
+    <fragment
+        android:id="@+id/joinGroup"
+        android:name="com.example.housework.ui.group.JoinGroup"
+        android:label="fragment_join_group"
+        tools:layout="@layout/fragment_join_group" />
+</navigation>
