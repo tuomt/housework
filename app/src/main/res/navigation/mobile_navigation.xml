@@ -27,14 +27,22 @@
         android:id="@+id/search_task"
         android:name="com.example.housework.ui.task.SearchTask"
         android:label="Searchtask"
-        tools:layout="@layout/fragment_search_tasks" />
+        tools:layout="@layout/fragment_search_tasks" >
+        <action
+            android:id="@+id/action_search_task_to_searchResults"
+            app:destination="@id/searchResults" />
+    </fragment>
 
     <fragment
         android:id="@+id/EditGroup"
         android:name="com.example.housework.ui.group.EditGroup"
         android:label="Ryhmän muokkaus"
         tools:layout="@layout/fragment_edit_group" />
-
+    <fragment
+        android:id="@+id/searchResults"
+        android:name="com.example.housework.ui.task.SearchResults"
+        android:label="Hakutulokset"
+        tools:layout="@layout/fragment_search_results" />
 
 
 </navigation>
