@@ -27,11 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SearchTask  searchTask=new SearchTask();
-        FragmentManager fm=getSupportFragmentManager();
-
-        int commit = fm.beginTransaction().add(R.id.drawer_layout, searchTask).commit();
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);

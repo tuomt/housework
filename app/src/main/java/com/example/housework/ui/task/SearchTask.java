@@ -26,19 +26,13 @@ public class SearchTask extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_search_tasks, container, false);
-        btnetsi1 = v.findViewById(R.id.btnetsi);
-        btnetsi1.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_search_tasks, container, false);
+        final Button searchtask = view.findViewById(R.id.btn_search_task);
+
+        searchtask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SearchResults searchResults = new SearchResults();
-
-                FragmentTransaction transaction;
-                transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.drawer_layout, searchResults);
-                FragmentTransaction transaction1 = transaction.addToBackStack(null);
-                int commit = transaction.commit();
-
+                Navigation.findNavController(v).navigate(R.id.action_search_task_to_search_result);
             }
         });
         return v;
