@@ -22,13 +22,12 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">käyttäjänimi tähän</string>
+    <string name="nav_header_subtitle">käyttäjän email jos on?</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="action_settings">Asetukset</string>
+    <string name="menu_home">Aloitus</string>
+    <string name="menu_header_mytask">Omat tehtävä</string>
 
     <string name="muokkaa_nime">Muokkaa nimeä</string>
     <string name="muuta_salasanaa">Muuta Salasanaa</string>
@@ -37,17 +36,17 @@
     <string name="ryhm_n_nimi_t_ss">ryhmän nimi tässä</string>
     <string name="ryhm_n_id">ryhmän id</string>
 
-    <string name="aloitusruutu">Aloitusruutu</string>
+    <string name="aloitusruutu">Aloitus</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="Tekijät">tekijät</string>
-    <string name="toistuvus">Toistuvus</string>
+    <string name="toistuvus">Toistuvuus</string>
 
-    <string name="ota_k_ytt_n_vanha_teht_v">Ota vanha tehtävä</string>
-    <string name="create_task">create_task</string>
-    <string name="Create_Task">Create task</string>
-    <string name="MyTasks">mytasks</string>
+    <string name="ota_k_ytt_n_vanha_teht_v">Ota käyttöön vanha tehtävä</string>
+
+    <string name="Create_Task">Luo uusi tehtävä</string>
+    <string name="MyTasks">Omat tehtävät</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -137,13 +136,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="toistuvuus">toistuvuus</string>
     <string name="luo_teht_v">Luo tehtävä</string>
     <string name="ryhm">Ryhmä</string>
     <string name="omat_teht_v_t">Omat tehtävät</string>
     <string name="etsi_teht_vi">Etsi tehtäviä</string>
     <string name="terve">Terve</string>
-    <string name="teht_v_ni">Tehtäväni</string>
+
     <string name="testi">testi</string>
     <string name="anna_hakuehdot">Anna hakuehdot</string>
     <string name="etsi">Etsi</string>
@@ -155,6 +153,8 @@
     <string name="txt_login_failed">Kirjautuminen epäonnistui</string>
     <string name="txt_invalid_username">Virheellinen käyttäjätunnus</string>
     <string name="txt_invalid_password">Virheellinen salasana</string>
+    <string name="text_mytask">Tässä pitäisi näkyä kaikki omat hommat ja niiden tilat</string>
+
     <string name="luotehtava">luotehtävä</string>
     <string name="kommentti">Kommentti</string>
 
