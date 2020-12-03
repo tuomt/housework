@@ -11,7 +11,7 @@
         <item
             android:id="@+id/mytasks"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/teht_v_ni" />
+            android:title="@string/menu_header_mytask" />
 
         <item
             android:id="@+id/Create_task"
