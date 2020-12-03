@@ -6,25 +6,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="@string/aloitusruutu" />
         <item
             android:id="@+id/mytasks"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_mytasks"
             android:title="@string/menu_header_mytask" />
 
         <item
             android:id="@+id/Create_task"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_createtask"
             android:title="@string/luo_teht_v" />
         <item
             android:id="@+id/search_task"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_searchtasks"
             android:title="@string/etsi_teht_vi" />
 
         <item
             android:id="@+id/EditGroup"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_editgroup"
             android:title="@string/ryhm" />
 
 
