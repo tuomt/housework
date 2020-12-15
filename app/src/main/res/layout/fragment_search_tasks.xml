@@ -37,6 +37,7 @@
             android:id="@+id/btn_select_doers_search_task"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="#F0F4F4"
             android:text="@string/Tekijät"
             android:textSize="20sp" />
@@ -60,24 +61,30 @@
 
         <Button
             android:id="@+id/btn_recurrence_search_task"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="#F0F4F4"
+            android:fadeScrollbars="false"
             android:text="@string/toistuvus"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/btn_search_task"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F0F4F4"
-            android:text="@string/etsi"
             android:textSize="20sp" />
 
         <CalendarView
             android:id="@+id/calendarView_search_task"
             android:layout_width="match_parent"
+            android:background="#F0F4F4"
+            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_search_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#F0F4F4"
+            android:text="@string/etsi"
+            android:textSize="20sp" />
 
     </LinearLayout>
 </ScrollView>
