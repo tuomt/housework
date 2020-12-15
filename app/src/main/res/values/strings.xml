@@ -148,8 +148,8 @@
     <string name="_1_3_kiireys">1_3 Kiireys</string>
     <string name="muokka_teht_v">Muokkaa tehtävää</string>
     <string name="teht_v_n_nimi">Tehtävän nimi</string>
-    <string name="haku_tulos">Haku Tulos</string>
-    <string name="button">Button</string>
+    <string name="hakutulos">Hakutulos</string>
+    <string name="btn_accept_select">Valitse</string>
     <string name="txt_login_failed">Kirjautuminen epäonnistui</string>
     <string name="txt_invalid_username">Virheellinen käyttäjätunnus</string>
     <string name="txt_invalid_password">Virheellinen salasana</string>
@@ -161,6 +161,8 @@
     <string name="text_searchtask_progress">Ei työnalla - Työnalla - Valmis</string>
     <string name="hint_taskname">Tehtävän nimi</string>
     <string name="hint_task_description">Lisätietoja tehtävästä</string>
+    <string name="etxt_task_desc2">homman lisätiedot</string>
+    <string name="etxt_task_doers2">tekijät</string>
 
 
 </resources>
