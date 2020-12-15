@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Housework</string>
+    <!-- Name of the preferences file (used for shared preferences) -->
+    <string name="preferences_file_name">AppPreferences</string>
     <!-- Strings related to login -->
 
     <string name="action_login">Kirjaudu sisään</string>
@@ -157,6 +159,16 @@
 
     <string name="luotehtava">luotehtävä</string>
     <string name="kommentti">Kommentti</string>
+    <string name="header_automatic_login">Starting up...</string>
+    <string name="setting_auto_login">Log in automatically</string>
 
+    <string name="error_general">Jotain meni vikaan...</string>
+    <string name="error_user_not_found">Käyttäjää ei löytynyt</string>
+    <string name="error_incorrect_password">Väärä salasana</string>
+    <string name="error_failed_to_enable_auto_login">Automaattisen kirjautumisen kytkeminen päälle ei onnistunut</string>
+    <string name="error_auto_login_failed">Automaattinen kirjautuminen epäonnistui</string>
+
+    <string name="success_login">Tervetuloa!</string>
+    <string name="success_user_created">Käyttäjä luotu</string>
 
 </resources>

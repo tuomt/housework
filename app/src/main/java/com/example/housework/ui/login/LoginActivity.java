@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.example.housework.R;
+import com.example.housework.api.ApiError;
 
 public class LoginActivity extends FragmentActivity {
 
