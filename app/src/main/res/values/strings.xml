@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Housework</string>
+    <string name="app_name">Choretracker</string>
     <!-- Strings related to login -->
 
     <string name="action_login">Kirjaudu sisään</string>
@@ -25,7 +25,7 @@
     <string name="nav_header_title">käyttäjänimi tähän</string>
     <string name="nav_header_subtitle">käyttäjän email jos on?</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Asetukset</string>
+    <string name="action_settings">Kirjaudu ulos</string>
     <string name="menu_home">Aloitus</string>
     <string name="menu_header_mytask">Omat tehtävä</string>
 
@@ -157,6 +157,10 @@
 
     <string name="luotehtava">luotehtävä</string>
     <string name="kommentti">Kommentti</string>
+    <string name="Btn_text_valitse_tekijat">Valitse tekijät</string>
+    <string name="text_searchtask_progress">Ei työnalla - Työnalla - Valmis</string>
+    <string name="hint_taskname">Tehtävän nimi</string>
+    <string name="hint_task_description">Lisätietoja tehtävästä</string>
 
 
 </resources>

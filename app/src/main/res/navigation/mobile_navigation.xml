@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/search_task"
         android:name="com.example.housework.ui.task.SearchTask"
-        android:label="Searchtask"
+        android:label="Etsi tehtäviä"
         tools:layout="@layout/fragment_search_tasks" >
         <action
             android:id="@+id/action_search_task_to_searchResults"
