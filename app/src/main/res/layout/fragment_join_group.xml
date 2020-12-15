@@ -2,31 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#8CC4FD"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.group.JoinGroup">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="306dp"
-        android:layout_height="75dp"
-        android:background="#F8F5F5"
+        android:layout_width="318dp"
+        android:layout_height="97dp"
+
         android:gravity="center"
         android:text="@string/header_join_group"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.197" />
 
     <EditText
         android:id="@+id/etxt_group_name_join_group"
-        android:layout_width="259dp"
-        android:layout_height="37dp"
+        android:layout_width="303dp"
+        android:layout_height="40dp"
         android:autofillHints="group_name"
         android:background="#F8F5F5"
         android:ems="10"
@@ -35,15 +35,14 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.401" />
 
     <EditText
         android:id="@+id/etxt_group_password_join_group"
-        android:layout_width="257dp"
-        android:layout_height="35dp"
+        android:layout_width="302dp"
+        android:layout_height="46dp"
         android:autofillHints="group_password"
         android:background="#F8F5F5"
         android:ems="10"
@@ -52,15 +51,16 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
 
     <Button
         android:id="@+id/btn_join_group"
         android:layout_width="190dp"
         android:layout_height="51dp"
-        android:background="#F8F5F5"
+
         android:text="@string/action_join_group"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,5 +68,5 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.661" />
 </androidx.constraintlayout.widget.ConstraintLayout>
