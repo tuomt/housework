@@ -12,7 +12,7 @@
     <string name="prompt_user_name">Nimi</string>
     <string name="action_create_group">Luo ryhmä</string>
     <string name="header_create_group">Luo ryhmä</string>
-    <string name="header_join_group">Liity ryhmään</string>
+    <string name="header_join_group">Kirjoita ryhmän nimi ja salasana</string>
     <string name="action_join_existing_group">Liity valmiiseen ryhmään</string>
     <string name="header_join_group_select">Luo uusi alikäyttäjä</string>
     <string name="header2_join_group_select">Tai liity olemassa olevana käyttäjänä</string>

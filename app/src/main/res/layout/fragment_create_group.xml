@@ -8,7 +8,7 @@
     tools:context=".ui.group.CreateGroup">
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etxt_group_name_create_group"
         android:layout_width="292dp"
         android:layout_height="53dp"
         android:background="#F8F5F5"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.321" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/etxt_group_password_create_group"
         android:layout_width="295dp"
         android:layout_height="56dp"
         android:background="#F8F5F5"
@@ -58,8 +58,8 @@
 
     <Button
         android:id="@+id/btn_move_join_group"
-        android:layout_width="230dp"
-        android:layout_height="71dp"
+        android:layout_width="190dp"
+        android:layout_height="51dp"
         android:background="#F8F5F5"
         android:text="@string/action_join_group"
         android:textSize="24sp"
@@ -68,12 +68,12 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845" />
+        app:layout_constraintVertical_bias="0.807" />
 
     <Button
         android:id="@+id/btn_create_group"
-        android:layout_width="230dp"
-        android:layout_height="71dp"
+        android:layout_width="190dp"
+        android:layout_height="51dp"
         android:background="#F8F5F5"
 
         android:text="@string/action_create_group"

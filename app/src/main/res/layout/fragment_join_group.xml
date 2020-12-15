@@ -2,44 +2,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#8CC4FD"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.group.JoinGroup">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="216dp"
-        android:layout_height="35dp"
+        android:layout_width="306dp"
+        android:layout_height="75dp"
+        android:background="#F8F5F5"
+        android:gravity="center"
         android:text="@string/header_join_group"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.229" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etxt_group_name_join_group"
+        android:layout_width="259dp"
+        android:layout_height="37dp"
+        android:autofillHints="group_name"
+        android:background="#F8F5F5"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/prompt_group_name"
         android:importantForAutofill="no"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389"
-        android:autofillHints="group_name" />
+        app:layout_constraintVertical_bias="0.389" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etxt_group_password_join_group"
+        android:layout_width="257dp"
+        android:layout_height="35dp"
         android:autofillHints="group_password"
+        android:background="#F8F5F5"
         android:ems="10"
         android:hint="@string/prompt_group_password"
         android:importantForAutofill="no"
@@ -51,13 +57,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_join_group"
+        android:layout_width="190dp"
+        android:layout_height="51dp"
+        android:background="#F8F5F5"
         android:text="@string/action_join_group"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintVertical_bias="0.639" />
 </androidx.constraintlayout.widget.ConstraintLayout>
