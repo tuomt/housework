@@ -153,8 +153,6 @@
     <string name="hakutulos">Hakutulos</string>
     <string name="btn_accept_select">Valitse</string>
     <string name="txt_login_failed">Kirjautuminen epäonnistui</string>
-    <string name="txt_invalid_username">Virheellinen käyttäjätunnus</string>
-    <string name="txt_invalid_password">Virheellinen salasana</string>
     <string name="text_mytask">Tässä pitäisi näkyä kaikki omat hommat ja niiden tilat</string>
 
     <string name="luotehtava">luotehtävä</string>
@@ -168,13 +166,24 @@
     <string name="header_automatic_login">Starting up...</string>
     <string name="setting_auto_login">Log in automatically</string>
 
-    <string name="error_general">Jotain meni vikaan...</string>
+    <!-- API request requirements -->
+    <string name="requirements_username">Käyttäjänimen pitää olla 2–21 merkkiä pitkä</string>
+    <string name="requirements_password">Salasanan pitää olla 8–85 merkkiä pitkä</string>
+    <string name="requirements_email">Sähköpostiosoitteen pitää olla 5–85 merkkiä pitkä</string>
+
+    <!-- Error messages -->
+    <string name="error_general">Tapahtui odottamaton virhe...</string>
     <string name="error_user_not_found">Käyttäjää ei löytynyt</string>
     <string name="error_incorrect_password">Väärä salasana</string>
     <string name="error_failed_to_enable_auto_login">Automaattisen kirjautumisen kytkeminen päälle ei onnistunut</string>
     <string name="error_auto_login_failed">Automaattinen kirjautuminen epäonnistui</string>
+    <string name="error_invalid_username">Käyttäjänimi ei täytä vaatimuksia</string>
+    <string name="error_invalid_password">Salasana ei täytä vaatimuksia</string>
+    <string name="error_invalid_email">Sähköpostiosoite ei täytä vaatimuksia</string>
 
+    <!-- Success messages -->
     <string name="success_login">Tervetuloa!</string>
     <string name="success_user_created">Käyttäjä luotu</string>
+    <string name="header_create_user">Syötä nimi, sähköposti ja salasana</string>
 
 </resources>

@@ -43,9 +43,9 @@ public class LoginViewModel extends ViewModel {
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.txt_invalid_username, null));
+            loginFormState.setValue(new LoginFormState(R.string.error_invalid_username, null));
         } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.txt_invalid_password));
+            loginFormState.setValue(new LoginFormState(null, R.string.error_invalid_password));
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }

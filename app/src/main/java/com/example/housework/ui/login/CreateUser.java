@@ -26,33 +26,22 @@ import com.example.housework.R;
 import com.example.housework.api.ApiError;
 import com.example.housework.api.ApiRequestHandler;
 import com.example.housework.api.Constants;
+import com.example.housework.api.InputValidator;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-
 public class CreateUser extends Fragment {
-
-    private CreateUserViewModel createUserViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_user, container, false);
-        createUserViewModel =
-                ViewModelProviders.of(this).get(CreateUserViewModel.class);
-        final TextView textView = view.findViewById(R.id.text_createuser);
-        createUserViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
         final Button createUserButton = view.findViewById(R.id.btn_create_user);
-        final EditText userNameText = view.findViewById(R.id.etxt_username);
-        final EditText emailText = view.findViewById(R.id.etxt_email);
-        final EditText passwordText = view.findViewById(R.id.etxt_password);
+        final TextInputLayout textInputUserName = view.findViewById(R.id.txt_input_username);
+        final TextInputLayout textInputEmail = view.findViewById(R.id.txt_input_email);
+        final TextInputLayout textInputPassword = view.findViewById(R.id.txt_input_password);
 
         // Instantiate the RequestQueue.
         final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().getApplicationContext()).getRequestQueue();
@@ -60,9 +49,34 @@ public class CreateUser extends Fragment {
         createUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String userName = userNameText.getText().toString();
-                final String email = emailText.getText().toString();
-                final String password = passwordText.getText().toString();
+                final String userName = textInputUserName.getEditText().getText().toString();
+                final String email = textInputEmail.getEditText().getText().toString();
+                final String password = textInputPassword.getEditText().getText().toString();
+
+                boolean containsInvalidInput = false;
+
+                // Validate username
+                if (!InputValidator.isValidUserName(userName)) {
+                    String error = getResources().getString(R.string.requirements_username);
+                    textInputUserName.setError(error);
+                    containsInvalidInput = true;
+                }
+
+                if (!InputValidator.isValidEmail(email)) {
+                     String error = getResources().getString(R.string.requirements_email);
+                     textInputEmail.setError(error);
+                    containsInvalidInput = true;
+                }
+
+                if (!InputValidator.isValidPassword(password)) {
+                     String error = getResources().getString(R.string.requirements_password);
+                     textInputPassword.setError(error);
+                     containsInvalidInput = true;
+                }
+
+                if (containsInvalidInput) {
+                    return;
+                }
 
                 JSONObject user = new JSONObject();
                 try {
