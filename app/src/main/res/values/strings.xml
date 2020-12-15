@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Housework</string>
+    <string name="app_name">Choretracker</string>
     <!-- Name of the preferences file (used for shared preferences) -->
     <string name="preferences_file_name">AppPreferences</string>
     <!-- Strings related to login -->
@@ -14,7 +14,7 @@
     <string name="prompt_user_name">Nimi</string>
     <string name="action_create_group">Luo ryhmä</string>
     <string name="header_create_group">Luo ryhmä</string>
-    <string name="header_join_group">Liity ryhmään</string>
+    <string name="header_join_group">Kirjoita ryhmän nimi ja salasana</string>
     <string name="action_join_existing_group">Liity valmiiseen ryhmään</string>
     <string name="header_join_group_select">Luo uusi alikäyttäjä</string>
     <string name="header2_join_group_select">Tai liity olemassa olevana käyttäjänä</string>
@@ -27,7 +27,7 @@
     <string name="nav_header_title">käyttäjänimi tähän</string>
     <string name="nav_header_subtitle">käyttäjän email jos on?</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Asetukset</string>
+    <string name="action_settings">Kirjaudu ulos</string>
     <string name="menu_home">Aloitus</string>
     <string name="menu_header_mytask">Omat tehtävä</string>
 
@@ -148,10 +148,10 @@
     <string name="anna_hakuehdot">Anna hakuehdot</string>
     <string name="etsi">Etsi</string>
     <string name="_1_3_kiireys">1_3 Kiireys</string>
-    <string name="muokka_teht_v">Muokka tehtävä</string>
+    <string name="muokka_teht_v">Muokkaa tehtävää</string>
     <string name="teht_v_n_nimi">Tehtävän nimi</string>
-    <string name="haku_tulos">Haku Tulos</string>
-    <string name="button">Button</string>
+    <string name="hakutulos">Hakutulos</string>
+    <string name="btn_accept_select">Valitse</string>
     <string name="txt_login_failed">Kirjautuminen epäonnistui</string>
     <string name="txt_invalid_username">Virheellinen käyttäjätunnus</string>
     <string name="txt_invalid_password">Virheellinen salasana</string>
@@ -159,6 +159,12 @@
 
     <string name="luotehtava">luotehtävä</string>
     <string name="kommentti">Kommentti</string>
+    <string name="Btn_text_valitse_tekijat">Valitse tekijät</string>
+    <string name="text_searchtask_progress">Ei työnalla - Työnalla - Valmis</string>
+    <string name="hint_taskname">Tehtävän nimi</string>
+    <string name="hint_task_description">Lisätietoja tehtävästä</string>
+    <string name="etxt_task_desc2">homman lisätiedot</string>
+    <string name="etxt_task_doers2">tekijät</string>
     <string name="header_automatic_login">Starting up...</string>
     <string name="setting_auto_login">Log in automatically</string>
 
