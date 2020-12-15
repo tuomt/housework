@@ -1,68 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-  android:orientation="vertical"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.task.SearchTask">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#B82525"
-        android:textColorLink="#F81E1E"
-        android:textSize="24sp" />
+        android:layout_height="match_parent"
+        android:background="#8CC4FD"
+        android:orientation="vertical"
+        tools:context=".ui.task.SearchTask">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/anna_hakuehdot"
-        android:textColor="#B82525"
-        android:textColorLink="#F81E1E"
-        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Tekijät"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#B82525"
+            android:textColorLink="#F81E1E"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/_1_3_kiireys" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/anna_hakuehdot"
 
-    <SeekBar
-        android:id="@+id/seekBar2"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:max="2"
-        android:progress="1" />
+            android:textColor="#070606"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/toistuvus"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/btn_select_doers_search_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F0F4F4"
+            android:text="@string/Tekijät"
+            android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btn_search_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/etsi"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_searchtask_progress"
+            android:textColor="#070606"
+            android:textSize="24sp" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        <SeekBar
+            android:id="@+id/action_bar_progress"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:max="2"
+            android:progress="1" />
+
+        <Button
+            android:id="@+id/btn_recurrence_search_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F0F4F4"
+            android:text="@string/toistuvus"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_search_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F0F4F4"
+            android:text="@string/etsi"
+            android:textSize="20sp" />
+
+        <CalendarView
+            android:id="@+id/calendarView_search_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
