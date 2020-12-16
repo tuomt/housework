@@ -10,6 +10,11 @@
         android:name="com.example.housework.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/logoutfragment"
+    android:name="com.example.housework.ui.login.LogoutFragment"
+    android:label="Kirjaudu ulos"
+    tools:layout="@layout/fragment_logout" />
 
     <fragment
         android:id="@+id/mytasks"

@@ -26,7 +26,10 @@
             android:id="@+id/EditGroup"
             android:icon="@drawable/ic_editgroup"
             android:title="@string/ryhm" />
-
+        <item
+            android:id="@+id/logoutfragment"
+            android:icon="@android:drawable/ic_lock_power_off"
+            android:title="@string/kirjaudu_ulos"/>
 
     </group>
 </menu>
