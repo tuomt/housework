@@ -60,18 +60,24 @@ public class CreateUser extends Fragment {
                     String error = getResources().getString(R.string.requirements_username);
                     textInputUserName.setError(error);
                     containsInvalidInput = true;
+                } else {
+                    textInputUserName.setError(null);
                 }
 
                 if (!InputValidator.isValidEmail(email)) {
                      String error = getResources().getString(R.string.requirements_email);
                      textInputEmail.setError(error);
                     containsInvalidInput = true;
+                } else {
+                    textInputEmail.setError(null);
                 }
 
                 if (!InputValidator.isValidPassword(password)) {
                      String error = getResources().getString(R.string.requirements_password);
                      textInputPassword.setError(error);
                      containsInvalidInput = true;
+                } else {
+                    textInputPassword.setError(null);
                 }
 
                 if (containsInvalidInput) {
@@ -125,16 +131,19 @@ public class CreateUser extends Fragment {
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        try {
-                            ApiError apiError = new ApiError(error.networkResponse.data);
-                            apiError.print();
-                            apiError.displayToUser(getActivity().getApplicationContext());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            String msg = getResources().getString(R.string.error_general);
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    msg,
-                                    Toast.LENGTH_LONG).show();
+                        if (error.networkResponse == null) {
+                            // Network error
+                            String msg = getResources().getString(R.string.error_general_network);
+                            Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                        } else {
+                            // API error
+                            try {
+                                ApiError apiError = new ApiError(error.networkResponse.data);
+                                apiError.print();
+                                apiError.displayToUser(getActivity().getApplicationContext());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 });
