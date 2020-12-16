@@ -80,7 +80,7 @@
     <string name="hint_taskname">Tehtävän nimi</string>
     <string name="hint_task_description">Lisätietoja tehtävästä</string>
     <string name="etxt_task_doers2">tekijät</string>
-    <string name="header_automatic_login" tools:ignore="TypographyEllipsis">Starting up...</string>
+    <string name="header_automatic_login" tools:ignore="TypographyEllipsis">Käynnistetään...</string>
     <string name="setting_auto_login">Log in automatically</string>
 
     <!-- API request requirements -->
@@ -103,5 +103,9 @@
     <string name="success_user_created">Käyttäjä luotu</string>
     <string name="header_create_user">Syötä nimi, sähköposti ja salasana</string>
     <string name="error_general_network">Verkkoyhteyden muodostaminen epäonnistui</string>
+    <string name="Logout">logout</string>
+    <string name="lopetetaan">Lopetetaan</string>
+    <string name="kirjaudutaan_ulos">Kirjaudutaan ulos...</string>
+    <string name="kirjaudu_ulos">Kirjaudu ulos</string>
 
 </resources>
