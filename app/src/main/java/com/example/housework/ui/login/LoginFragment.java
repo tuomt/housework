@@ -185,12 +185,19 @@ public class LoginFragment extends Fragment {
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        try {
-                            ApiError apiError = new ApiError(error.networkResponse.data);
-                            apiError.print();
-                            apiError.displayToUser(getActivity().getApplicationContext());
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        if (error.networkResponse == null) {
+                            // Network error
+                            String msg = getResources().getString(R.string.error_general_network);
+                            Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                        } else {
+                            // API error
+                            try {
+                                ApiError apiError = new ApiError(error.networkResponse.data);
+                                apiError.print();
+                                apiError.displayToUser(getActivity().getApplicationContext());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 });

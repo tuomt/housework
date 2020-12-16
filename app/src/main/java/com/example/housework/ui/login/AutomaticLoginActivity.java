@@ -105,18 +105,8 @@ public class AutomaticLoginActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                try {
-                    ApiError apiError = new ApiError(error.networkResponse.data);
-                    apiError.print();
-                    String msg = getResources().getString(R.string.error_auto_login_failed);
-                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    String msg = getResources().getString(R.string.error_general);
-                    Toast.makeText(getApplicationContext(),
-                            msg,
-                            Toast.LENGTH_LONG).show();
-                }
+                String msg = getResources().getString(R.string.error_auto_login_failed);
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
                 // Change to login activity
                 Intent intent = new Intent(AutomaticLoginActivity.this, LoginActivity.class);
@@ -215,16 +205,8 @@ public class AutomaticLoginActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                try {
-                    ApiError apiError = new ApiError(error.networkResponse.data);
-                    apiError.print();
-                    String msg = getResources().getString(R.string.error_auto_login_failed);
-                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    String msg = getResources().getString(R.string.error_general);
-                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                }
+                String msg = getResources().getString(R.string.error_auto_login_failed);
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
                 // Change to login activity
                 Intent intent = new Intent(AutomaticLoginActivity.this, LoginActivity.class);
