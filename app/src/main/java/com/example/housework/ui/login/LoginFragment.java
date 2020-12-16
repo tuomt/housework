@@ -162,7 +162,7 @@ public class LoginFragment extends Fragment {
                                 } else {
                                     // Clear user id and the refresh token from preferences
                                     prefEditor.remove("user_id");
-                                    prefEditor.remove("access_token");
+                                    prefEditor.remove("refresh_token");
                                     prefEditor.putBoolean("auto_login", false);
                                     prefEditor.apply();
                                 }
