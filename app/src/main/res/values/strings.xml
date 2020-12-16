@@ -185,5 +185,6 @@
     <string name="success_login">Tervetuloa!</string>
     <string name="success_user_created">Käyttäjä luotu</string>
     <string name="header_create_user">Syötä nimi, sähköposti ja salasana</string>
+    <string name="error_general_network">Verkkoyhteyden muodostaminen epäonnistui</string>
 
 </resources>
