@@ -10,106 +10,83 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/txttehtavanimi"
-        android:layout_width="324dp"
+    <EditText
+        android:id="@+id/etxt_task_info_edit_name"
+        android:layout_width="320dp"
         android:layout_height="67dp"
+        android:layout_marginTop="32dp"
+        android:background="#ffffff"
         android:gravity="center"
-        android:text="@string/teht_v_n_nimi"
+        android:hint="@string/prompt_task_name"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="text"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="424dp"
-        android:layout_height="40dp"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="@string/text_searchtask_progress"
         android:textColor="#070606"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintTop_toBottomOf="@+id/etxt_task_description" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/bar_task_progress"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="332dp"
+        android:layout_width="320dp"
         android:layout_height="53dp"
         android:layout_marginStart="39dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="40dp"
         android:max="2"
         android:progress="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="247dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="33dp"
-        android:background="#F6F0F0"
-        android:text="@string/muokka_teht_v"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="317dp"
+        android:id="@+id/etxt_task_description"
+        android:layout_width="320dp"
         android:layout_height="90dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="32dp"
-        android:background="#F8F5F5"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="@string/etxt_task_desc2"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        android:padding="5dp"
+        android:hint="@string/prompt_task_description"
+        android:textAlignment="gravity"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_task_doers" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine3"
-        android:layout_width="317dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="420dp"
-        android:background="#F8F5F5"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="@string/etxt_task_doers2"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btn_task_doers"
+        android:layout_width="320dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="64dp"
+        android:background="#FFFFFF"
+        android:text="@string/action_view_task_doers"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txttehtavanimi" />
+        app:layout_constraintTop_toBottomOf="@+id/etxt_task_info_edit_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

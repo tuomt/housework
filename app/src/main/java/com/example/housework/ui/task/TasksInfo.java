@@ -7,8 +7,25 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.SeekBar;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.housework.R;
+import com.example.housework.api.ApiError;
+import com.example.housework.api.ApiRequestHandler;
+import com.example.housework.api.CachedJsonObjectRequest;
+import com.example.housework.api.Constants;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,12 +36,12 @@ public class TasksInfo extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_TASK_ID = "task_id";
+    private static final String ARG_GROUP_ID = "group_id";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private long mTaskId;
+    private long mGroupId;
 
     public TasksInfo() {
         // Required empty public constructor
@@ -39,11 +56,11 @@ public class TasksInfo extends Fragment {
      * @return A new instance of fragment TasksInfo.
      */
     // TODO: Rename and change types and number of parameters
-    public static TasksInfo newInstance(String param1, String param2) {
+    public static TasksInfo newInstance(long param1, long param2) {
         TasksInfo fragment = new TasksInfo();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putLong(ARG_TASK_ID, param1);
+        args.putLong(ARG_GROUP_ID, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +69,9 @@ public class TasksInfo extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mTaskId = getArguments().getLong(ARG_TASK_ID);
+            mGroupId = getArguments().getLong(ARG_GROUP_ID);
+            requestAndDisplayTask(mTaskId, mGroupId);
         }
     }
 
@@ -62,5 +80,79 @@ public class TasksInfo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tasks_info, container, false);
+    }
+
+    private void displayTask(JSONObject task) {
+        View view = getView();
+        EditText taskNameEditText = view.findViewById(R.id.etxt_task_info_edit_name);
+        EditText descriptionEditText = view.findViewById(R.id.etxt_task_description);
+        SeekBar progressBar = view.findViewById(R.id.bar_task_progress);
+
+        try {
+            taskNameEditText.setText(task.getString("name"));
+            if (task.isNull("description")) {
+                descriptionEditText.setText("");
+            } else {
+                descriptionEditText.setText(task.getString("description"));
+            }
+
+            String progress = task.getString("progress");
+            System.out.println("Progress: " + progress);
+            switch (progress) {
+                case "not in progress":
+                    progressBar.setProgress(0);
+                    break;
+                case "in progress":
+                    progressBar.setProgress(1);
+                    break;
+                case "completed":
+                    progressBar.setProgress(2);
+                    break;
+            }
+    } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void requestAndDisplayTask(final long taskId, final long groupId) {
+        // Instantiate the RequestQueue
+        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().
+                getApplicationContext()).
+                getRequestQueue();
+
+        final String accessToken = getActivity().getIntent().getExtras().getString("access_token");
+
+        String url = Constants.DOMAIN + "/api/groups/" + groupId + "/tasks/" + taskId;
+
+        // Create a request for the task
+        CachedJsonObjectRequest request = new CachedJsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        displayTask(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                try {
+                    ApiError apiError = new ApiError(error.networkResponse.data);
+                    apiError.print();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() {
+                // Set Bearer token for the request
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + accessToken);
+                return headers;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(request);
     }
 }

@@ -14,8 +14,12 @@
     <fragment
         android:id="@+id/mytasks"
         android:name="com.example.housework.ui.task.MyTasks"
-        android:label="omat tehtävät"
-        tools:layout="@layout/fragment_my_tasks" />
+        android:label="Omat tehtävät"
+        tools:layout="@layout/fragment_my_tasks" >
+        <action
+            android:id="@+id/action_mytasks_to_tasksInfo"
+            app:destination="@id/tasksInfo" />
+    </fragment>
 
     <fragment
         android:id="@+id/Create_task"
@@ -61,6 +65,11 @@
             android:id="@+id/action_createGroup_to_joinGroup2"
             app:destination="@id/joinGroup2" />
     </fragment>
+    <fragment
+        android:id="@+id/tasksInfo"
+        android:name="com.example.housework.ui.task.TasksInfo"
+        android:label="@string/title_task_info"
+        tools:layout="@layout/fragment_tasks_info" />
 
 
 </navigation>
