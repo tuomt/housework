@@ -1,6 +1,5 @@
 package com.example.housework;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +12,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.housework.api.ApiError;
 import com.example.housework.api.ApiRequestHandler;
+import com.example.housework.api.CachedJsonObjectRequest;
 import com.example.housework.api.Constants;
 import com.example.housework.ui.login.LoginActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -31,6 +28,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView userNameTextView = headerView.findViewById(R.id.txt_sidebar_user_name);
         final TextView emailTextView = headerView.findViewById(R.id.txt_sidebar_user_email);
 
-        Bundle bundle = getIntent().getExtras();
+        final Bundle bundle = getIntent().getExtras();
 
         // Check if a user id and access token were passed correctly
         if (bundle == null ||
@@ -121,13 +119,23 @@ public class MainActivity extends AppCompatActivity {
         String url = Constants.DOMAIN + "/api/users/" + userId;
 
         // Create a request for user data
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+        CachedJsonObjectRequest request = new CachedJsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             userNameTextView.setText(response.getString("name"));
                             emailTextView.setText(response.getString("email"));
+
+                            if (response.isNull("groups")) {
+                                // User does not belong to a group
+                            } else {
+                                JSONArray groups = response.getJSONArray("groups");
+                                System.out.println(groups.getJSONObject(0).toString());
+                                long groupId = groups.getJSONObject(0).getLong("group_id");
+                                bundle.putLong("group_id", groupId);
+                            }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
