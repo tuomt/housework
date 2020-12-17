@@ -57,7 +57,7 @@
             android:ems="10"
             android:hint="@string/prompt_group_password"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="none|textPassword"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
