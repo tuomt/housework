@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#8CC4FD"
         android:scrollbarStyle="outsideInset"
         tools:context=".ui.task.CreateTask"
@@ -27,11 +27,13 @@
             android:gravity="center"
             android:hint="@string/hint_taskname"
             android:textSize="30sp"
+            android:importantForAutofill="no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btn_select_doers"
@@ -81,7 +83,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/btn_use_saved"
@@ -116,7 +119,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <CalendarView
-            android:id="@+id/calendarView2"
+            android:id="@+id/calendar_create_task"
             android:layout_width="399dp"
             android:layout_height="314dp"
             android:layout_marginTop="288dp"

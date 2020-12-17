@@ -2,86 +2,111 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#8CC4FD"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8CC4FD"
     tools:context=".ui.group.CreateGroup">
 
-    <EditText
-        android:id="@+id/etxt_group_name_create_group"
-        android:layout_width="292dp"
-        android:layout_height="53dp"
-        android:background="#F8F5F5"
-        android:ems="10"
-        android:hint="@string/prompt_group_name"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
 
-    <EditText
-        android:id="@+id/etxt_group_password_create_group"
-        android:layout_width="295dp"
-        android:layout_height="56dp"
-        android:background="#F8F5F5"
-        android:ems="10"
-        android:hint="@string/prompt_group_password"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_input_layout_group_name"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_create_group">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxt_group_name_create_group"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ffffff"
+            android:ems="10"
+            android:hint="@string/prompt_group_name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.31" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_input_layout_group_password"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_input_layout_group_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxt_group_password_create_group"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ffffff"
+            android:ems="10"
+            android:hint="@string/prompt_group_password"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.31" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="148dp"
-        android:layout_height="44dp"
-        android:background="#F8F5F5"
+        android:id="@+id/txt_create_group"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="@string/header_create_group"
         android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_move_join_group"
         android:layout_width="190dp"
         android:layout_height="51dp"
-        android:background="#F8F5F5"
+        android:background="#FFFFFF"
         android:text="@string/action_join_group"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_create_group"
+        app:layout_constraintVertical_bias="0.41000003" />
 
     <Button
         android:id="@+id/btn_create_group"
         android:layout_width="190dp"
         android:layout_height="51dp"
-        android:background="#F8F5F5"
+        android:layout_marginTop="64dp"
 
+        android:background="#FFFFFF"
         android:text="@string/action_create_group"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_input_layout_group_password" />
 </androidx.constraintlayout.widget.ConstraintLayout>

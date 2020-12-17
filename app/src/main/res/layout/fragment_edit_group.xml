@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/editGroupLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8CC4FD"
@@ -13,10 +13,10 @@
     tools:context=".ui.group.EditGroup">
 
     <Button
-        android:id="@+id/deleteUsers2"
+        android:id="@+id/btn_modify_group_members"
         android:layout_width="196dp"
         android:layout_height="43dp"
-        android:background="#F8F4F4"
+        android:background="#FFFFFF"
         android:text="@string/vaihda_oikeuksia"
         android:textColor="#020202"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,24 +27,10 @@
         app:layout_constraintVertical_bias="0.653" />
 
     <Button
-        android:id="@+id/deleteUsers"
+        android:id="@+id/btn_change_group_password"
         android:layout_width="196dp"
         android:layout_height="43dp"
-        android:background="#F6F0F0"
-        android:text="@string/poista_j_seni"
-        android:textColor="#0C0B0B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
-
-    <Button
-        android:id="@+id/DeleteUsers"
-        android:layout_width="196dp"
-        android:layout_height="43dp"
-        android:background="#FDF8F8"
+        android:background="#FFFFFF"
         android:text="@string/muuta_salasanaa"
         android:textColor="#050505"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,8 +40,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.757" />
 
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        android:text="@string/txt_group_members"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_view_group_members"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxt_group_name_edit_group" />
+
     <ScrollView
-        android:id="@+id/users"
+        android:id="@+id/scroll_view_group_members"
         android:layout_width="350dp"
         android:layout_height="201dp"
         android:layout_marginStart="16dp"
@@ -66,53 +68,35 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.727">
 
-        <TextView
-            android:id="@+id/textView8"
+        <LinearLayout
+            android:id="@+id/layout_group_members"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Ryhmän käyttäjien nimet tähän"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+            android:orientation="vertical" />
     </ScrollView>
 
-    <TextView
-        android:id="@+id/groupname"
-        android:layout_width="226dp"
-        android:layout_height="44dp"
+    <EditText
+        android:id="@+id/etxt_group_name_edit_group"
+        android:layout_width="339dp"
+        android:layout_height="43dp"
         android:background="#FFFFFFFF"
-        android:text="@string/ryhm_n_nimi_t_ss"
-
+        android:enabled="false"
+        android:hint="@string/prompt_group_name"
+        android:textAlignment="center"
         android:textColor="#040303"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028" />
-
-    <Button
-        android:id="@+id/btn_move_to_creategroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="303dp"
-        android:layout_marginTop="522dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="16dp"
-        android:background="#FFFFFF"
-        android:text="temp"
-        android:textColor="#F0000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.028"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

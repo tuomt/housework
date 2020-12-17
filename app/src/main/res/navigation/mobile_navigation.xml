@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="com.example.housework.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_tasksInfo"
+            app:destination="@id/tasksInfo" />
+    </fragment>
     <fragment
         android:id="@+id/logoutfragment"
     android:name="com.example.housework.ui.login.LogoutFragment"
@@ -57,18 +61,18 @@
         android:label="Hakutulokset"
         tools:layout="@layout/fragment_search_results" />
     <fragment
-        android:id="@+id/joinGroup2"
-        android:name="com.example.housework.ui.group.JoinGroup"
+        android:id="@+id/joinGroupMaster"
+        android:name="com.example.housework.ui.group.JoinGroupMasterFragment"
         android:label="Liity ryhmään"
-        tools:layout="@layout/fragment_join_group" />
+        tools:layout="@layout/fragment_join_group_master" />
     <fragment
         android:id="@+id/createGroup"
         android:name="com.example.housework.ui.group.CreateGroup"
         android:label="Luo ryhmä"
         tools:layout="@layout/fragment_create_group" >
         <action
-            android:id="@+id/action_createGroup_to_joinGroup2"
-            app:destination="@id/joinGroup2" />
+            android:id="@+id/action_createGroup_to_joinGroupMaster"
+            app:destination="@id/joinGroupMaster" />
     </fragment>
     <fragment
         android:id="@+id/tasksInfo"

@@ -16,10 +16,13 @@ import com.example.housework.api.ApiError;
 import com.example.housework.api.ApiRequestHandler;
 import com.example.housework.api.CachedJsonObjectRequest;
 import com.example.housework.api.Constants;
+import com.example.housework.data.User;
+import com.example.housework.data.UserViewModel;
 import com.example.housework.ui.login.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -38,6 +41,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,34 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        final Bundle bundle = getIntent().getExtras();
+
+        // Check if a user id and access token were passed correctly
+        if (bundle == null || bundle.getLong("user_id", -1) == -1 ||
+                bundle.getString("access_token", null) == null) {
+
+            // Notify the user of the error
+            String msg = getResources().getString(R.string.error_general);
+            Toast.makeText(getApplicationContext(),
+                    msg,
+                    Toast.LENGTH_LONG).show();
+
+            // Change back to the login activity
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+
+            // Finish this activity
+            finish();
+            return;
+        } else {
+            // Initialize userViewModel instance
+            userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+            Long userId = bundle.getLong("user_id");
+            String accessToken  = bundle.getString("access_token");
+            User user = new User(userId, null, null, -1, accessToken);
+            userViewModel.setUser(user);
+        }
 
         // Load the user name and email in the sidebar
         updateSidebarUserDetails();
@@ -88,30 +120,10 @@ public class MainActivity extends AppCompatActivity {
         final TextView userNameTextView = headerView.findViewById(R.id.txt_sidebar_user_name);
         final TextView emailTextView = headerView.findViewById(R.id.txt_sidebar_user_email);
 
-        final Bundle bundle = getIntent().getExtras();
 
-        // Check if a user id and access token were passed correctly
-        if (bundle == null ||
-                bundle.getLong("user_id", -1) == -1 ||
-                bundle.getString("access_token", null) == null) {
-
-            // Notify the user of the error
-            String msg = getResources().getString(R.string.error_general);
-            Toast.makeText(getApplicationContext(),
-                    msg,
-                    Toast.LENGTH_LONG).show();
-
-            // Change back to the login activity
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-
-            // Finish this activity
-            finish();
-            return;
-        }
-
-        final long userId = bundle.getLong("user_id", -1);
-        final String accessToken = bundle.getString("access_token", null);
+        User user = userViewModel.getUser().getValue();
+        final long userId = user.getId();
+        final String accessToken = user.getAccessToken();
 
         // Instantiate the RequestQueue
         final RequestQueue queue = ApiRequestHandler.getInstance(getApplicationContext()).getRequestQueue();
@@ -133,7 +145,13 @@ public class MainActivity extends AppCompatActivity {
                                 JSONArray groups = response.getJSONArray("groups");
                                 System.out.println(groups.getJSONObject(0).toString());
                                 long groupId = groups.getJSONObject(0).getLong("group_id");
-                                bundle.putLong("group_id", groupId);
+                                User user = new User(response.getLong("id"),
+                                        response.getString("name"),
+                                        response.getString("email"),
+                                        groupId,
+                                        accessToken);
+
+                                userViewModel.setUser(user);
                             }
 
                         } catch (JSONException e) {

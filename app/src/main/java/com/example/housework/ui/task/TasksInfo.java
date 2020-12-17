@@ -3,6 +3,7 @@ package com.example.housework.ui.task;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.housework.api.ApiError;
 import com.example.housework.api.ApiRequestHandler;
 import com.example.housework.api.CachedJsonObjectRequest;
 import com.example.housework.api.Constants;
+import com.example.housework.data.UserViewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +44,8 @@ public class TasksInfo extends Fragment {
     // TODO: Rename and change types of parameters
     private long mTaskId;
     private long mGroupId;
+
+    private UserViewModel userViewModel;
 
     public TasksInfo() {
         // Required empty public constructor
@@ -68,6 +72,9 @@ public class TasksInfo extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+
         if (getArguments() != null) {
             mTaskId = getArguments().getLong(ARG_TASK_ID);
             mGroupId = getArguments().getLong(ARG_GROUP_ID);
@@ -120,7 +127,7 @@ public class TasksInfo extends Fragment {
                 getApplicationContext()).
                 getRequestQueue();
 
-        final String accessToken = getActivity().getIntent().getExtras().getString("access_token");
+        final String accessToken = userViewModel.getUser().getValue().getAccessToken();
 
         String url = Constants.DOMAIN + "/api/groups/" + groupId + "/tasks/" + taskId;
 

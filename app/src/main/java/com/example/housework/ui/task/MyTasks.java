@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -27,6 +29,8 @@ import com.example.housework.api.ApiRequestHandler;
 import com.example.housework.api.CachedJsonArrayRequest;
 import com.example.housework.api.CachedJsonObjectRequest;
 import com.example.housework.api.Constants;
+import com.example.housework.data.User;
+import com.example.housework.data.UserViewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,6 +55,8 @@ public class MyTasks extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private UserViewModel userViewModel;
 
     public MyTasks() {
         // Required empty public constructor
@@ -86,15 +92,18 @@ public class MyTasks extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        System.out.println("USER NAME: " + userViewModel.getUser().getValue().getName());
         requestAndDisplayTasks();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_tasks, container, false);
     }
 
     private void requestAndDisplayTasks() {
+        User user = userViewModel.getUser().getValue();
         Bundle extras = getActivity().getIntent().getExtras();
-        long userId = extras.getLong("user_id");
-        String accessToken = extras.getString("access_token");
+        long userId = user.getId();
+        String accessToken = user.getAccessToken();
         requestUser(userId, accessToken);
     }
 
@@ -118,7 +127,18 @@ public class MyTasks extends Fragment {
                                 JSONArray groups = response.getJSONArray("groups");
                                 System.out.println(groups.getJSONObject(0).toString());
                                 long groupId = groups.getJSONObject(0).getLong("group_id");
-                                requestTasks(userId, groupId, accessToken);
+
+                                User user = new User(response.getLong("id"),
+                                        response.getString("name"),
+                                        response.getString("email"),
+                                        groupId,
+                                        accessToken);
+                                userViewModel.setUser(user);
+
+                                if (getActivity() != null) {
+                                    // Request tasks
+                                    requestTasks(userId, groupId, accessToken);
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -151,10 +171,6 @@ public class MyTasks extends Fragment {
     }
 
     private void requestTasks(final long userId, final long groupId, final String accessToken) {
-        // Instantiate the RequestQueue
-        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().
-                getApplicationContext()).
-                getRequestQueue();
 
         String url = Constants.DOMAIN + "/api/groups/" + groupId + "/tasks";
 
@@ -169,9 +185,11 @@ public class MyTasks extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 try {
-                    ApiError apiError = new ApiError(error.networkResponse.data);
-                    apiError.print();
-                    // TODO: Check for failed authorization
+                    if (error.networkResponse != null) {
+                        ApiError apiError = new ApiError(error.networkResponse.data);
+                        apiError.print();
+                        // TODO: Check for failed authorization
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -187,6 +205,16 @@ public class MyTasks extends Fragment {
             }
         };
 
+        // Instantiate the RequestQueue
+        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().
+                getApplicationContext()).
+                getRequestQueue();
+
+        // Fix Volley sending requests twice
+        request.setRetryPolicy(new DefaultRetryPolicy(0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         // Add the request to the RequestQueue.
         queue.add(request);
     }
@@ -199,7 +227,6 @@ public class MyTasks extends Fragment {
                     final long taskId = task.getLong("id");
                     String taskName = task.getString("name");
                     String startDate = task.getString("start_date");
-                    System.out.println("OWN TASK: " + taskName);
 
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     LinearLayout layout = getActivity().findViewById(R.id.layout_my_tasks);
@@ -222,7 +249,6 @@ public class MyTasks extends Fragment {
                             Bundle bundle = new Bundle();
                             bundle.putLong("task_id", taskId);
                             bundle.putLong("group_id", groupId);
-                            //bundle.putString("access_token", accessToken);
                             Navigation.findNavController(v).navigate(R.id.action_mytasks_to_tasksInfo, bundle);
                         }
                     });
