@@ -27,7 +27,7 @@
     <string name="nav_header_title">käyttäjänimi tähän</string>
     <string name="nav_header_subtitle">käyttäjän email jos on?</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Kirjaudu ulos</string>
+    <string name="action_settings">Versio 1.0</string>
     <string name="menu_home">Aloitus</string>
     <string name="menu_header_mytask">Omat tehtävä</string>
 
