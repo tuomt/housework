@@ -81,7 +81,7 @@
     <string name="hint_task_description">Lisätietoja tehtävästä</string>
     <string name="etxt_task_doers2">tekijät</string>
     <string name="header_automatic_login" tools:ignore="TypographyEllipsis">Käynnistetään...</string>
-    <string name="setting_auto_login">Log in automatically</string>
+    <string name="setting_auto_login">Automaattinen kirjautuminen</string>
     <string name="header_create_user">Syötä nimi, sähköposti ja salasana</string>
 
     <!-- API request requirements -->
@@ -109,13 +109,13 @@
     <string name="success_user_created">Käyttäjä luotu</string>
     <string name="success_group_created">Ryhmä luotu! Nyt voit liittyä siihen</string>
     <string name="success_group_member_created">Olet liittynyt ryhmään!</string>
+    <string name="success_task_created">Tehtävä luotu!</string>
 
     <!-- Not classified messages -->
     <string name="Logout">logout</string>
     <string name="lopetetaan">Lopetetaan</string>
     <string name="kirjaudutaan_ulos" tools:ignore="TypographyEllipsis">Kirjaudutaan ulos...</string>
     <string name="kirjaudu_ulos">Kirjaudu ulos</string>
-    <string name="success_task_created">Tehtävä luotu!</string>
     <string name="txt_group_members">Jäsenet</string>
 
 </resources>

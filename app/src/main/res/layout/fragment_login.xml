@@ -19,51 +19,50 @@
 
         <EditText
             android:id="@+id/etxt_email"
-            android:layout_width="0dp"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="24dp"
+            android:autofillHints="email"
             android:hint="@string/prompt_user_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:autofillHints="email" />
+            app:layout_constraintVertical_bias="0.2" />
 
         <EditText
             android:id="@+id/etxt_password"
-            android:layout_width="0dp"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="32dp"
+            android:autofillHints="password"
             android:hint="@string/prompt_user_password"
             android:imeActionLabel="@string/action_login"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etxt_email"
-            android:autofillHints="password" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="168dp"
             android:layout_height="51dp"
             android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginTop="32dp"
             android:text="@string/action_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etxt_password"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintTop_toBottomOf="@+id/switch_auto_login"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
             android:id="@+id/loading"
@@ -85,45 +84,38 @@
             android:id="@+id/btn_move_to_create_user"
             android:layout_width="168dp"
             android:layout_height="51dp"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="352dp"
-            android:layout_marginEnd="121dp"
-            android:layout_marginBottom="312dp"
             android:text="@string/action_create_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            app:layout_constraintVertical_bias="0.35" />
 
         <Button
             android:id="@+id/btn_join_group"
             android:layout_width="168dp"
             android:layout_height="51dp"
-            android:layout_marginStart="122dp"
-            android:layout_marginTop="419dp"
-            android:layout_marginEnd="105dp"
-            android:layout_marginBottom="245dp"
             android:text="@string/action_join_existing_group"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_move_to_create_user"
+            app:layout_constraintVertical_bias="0.2" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch_auto_login"
-            android:layout_width="327dp"
+            android:layout_width="310dp"
             android:layout_height="26dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="24dp"
             android:text="@string/setting_auto_login"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etxt_password" />
+            app:layout_constraintTop_toBottomOf="@+id/etxt_password"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
