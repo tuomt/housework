@@ -91,119 +91,19 @@ public class LoginFragment extends Fragment {
         final Button loginButton = view.findViewById(R.id.btn_login);
         final SwitchCompat autoLoginSwitch = view.findViewById(R.id.switch_auto_login);
 
-        // Instantiate the RequestQueue.
-        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().getApplicationContext()).getRequestQueue();
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = emailText.getText().toString();
                 String password = passwordText.getText().toString();
 
-                JSONObject user = new JSONObject();
-                try {
-                    user.put("email", email);
-                    user.put("password", password);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    String msg = getResources().getString(R.string.error_general);
-                    Toast.makeText(getActivity().getApplicationContext(),
-                            msg,
-                            Toast.LENGTH_LONG).show();
+                email = email.trim();
+                if (email.length() > 0 && password.length() > 0) {
+                    // Disable all user actions such as buttons
+                    setActionsEnabled(false);
+                    // Try to log in
+                    requestAuthenticate(email, password, autoLoginSwitch.isChecked());
                 }
-
-                // Authentication URL
-                String url = Constants.DOMAIN + "/api/credentials/user";
-
-                // Create a request for user authentication
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, user,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                // Create intent for main activity
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-
-                                // Save user id and access_token for main activity
-                                try {
-                                    Bundle b = new Bundle();
-                                    b.putLong("user_id", response.getLong("user_id"));
-                                    b.putString("access_token", response.getString("access_token"));
-                                    intent.putExtras(b);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    String msg = getResources().getString(R.string.error_general);
-                                    Toast.makeText(getActivity().getApplicationContext(),
-                                            msg,
-                                            Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-
-                                // Get shared preferences
-                                SharedPreferences sharedPreferences = getActivity()
-                                        .getSharedPreferences(String.valueOf(R.string.preferences_file_name),
-                                                Context.MODE_PRIVATE);
-                                SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-
-                                // Save user id and refresh token if automatic login is enabled
-                                if (autoLoginSwitch.isChecked()) {
-                                    try {
-                                        prefEditor.putLong("user_id", response.getLong("user_id"));
-                                        prefEditor.putString("refresh_token", response.getString("refresh_token"));
-                                        prefEditor.putBoolean("auto_login", true);
-                                        prefEditor.apply();
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        String msg = getResources().getString(R.string.error_general);
-                                        Toast.makeText(getActivity().getApplicationContext(),
-                                                msg,
-                                                Toast.LENGTH_LONG).show();
-                                        return;
-                                    }
-                                } else {
-                                    // Clear user id and the refresh token from preferences
-                                    prefEditor.remove("user_id");
-                                    prefEditor.remove("refresh_token");
-                                    prefEditor.putBoolean("auto_login", false);
-                                    prefEditor.apply();
-                                }
-
-                                // Notify the user of a successful login
-                                String loginMsg = getResources().getString(R.string.success_login);
-                                Toast.makeText(getActivity().getApplicationContext(),
-                                        loginMsg,
-                                        Toast.LENGTH_LONG).show();
-
-                                // Change to main activity
-                                startActivity(intent);
-
-                                // Complete and destroy login activity once successful
-                                FragmentActivity loginActivity = getActivity();
-                                if (loginActivity != null) {
-                                    loginActivity.finish();
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        if (error.networkResponse == null) {
-                            // Network error
-                            String msg = getResources().getString(R.string.error_general_network);
-                            Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                        } else {
-                            // API error
-                            try {
-                                ApiError apiError = new ApiError(error.networkResponse.data);
-                                apiError.print();
-                                apiError.displayToUser(getActivity().getApplicationContext());
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-
-                // Add the request to the RequestQueue.
-                queue.add(request);
             }
         });
 
@@ -223,4 +123,159 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
+
+    private void enableAutoLogin(long userId, String refreshToken) {
+        // Get shared preferences
+        SharedPreferences sharedPreferences = getActivity()
+                .getSharedPreferences(String.valueOf(R.string.preferences_file_name),
+                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
+
+        // Save user id, refresh token and auto login state
+        prefEditor.putLong("user_id", userId);
+        prefEditor.putString("refresh_token", refreshToken);
+        prefEditor.putBoolean("auto_login", true);
+        prefEditor.apply();
+    }
+
+    private void disableAutoLogin() {
+        // Get shared preferences
+        SharedPreferences sharedPreferences = getActivity()
+                .getSharedPreferences(String.valueOf(R.string.preferences_file_name),
+                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
+
+        // Clear shared preferences
+        prefEditor.remove("user_id");
+        prefEditor.remove("refresh_token");
+        prefEditor.putBoolean("auto_login", false);
+        prefEditor.apply();
+    }
+
+    /**
+     * Set the enabled state of all components.
+     *
+     * @param enabled state of the components
+     */
+    private void setActionsEnabled(boolean enabled) {
+        View view = getActivity().findViewById(R.id.login_screen);
+
+        EditText emailText = view.findViewById(R.id.etxt_email);
+        EditText passwordText = view.findViewById(R.id.etxt_password);
+        Button createUserButton = view.findViewById(R.id.btn_move_to_create_user);
+        Button joinGroupButton = view.findViewById(R.id.btn_join_group);
+        Button loginButton = view.findViewById(R.id.btn_login);
+        SwitchCompat autoLoginSwitch = view.findViewById(R.id.switch_auto_login);
+
+        emailText.setEnabled(enabled);
+        passwordText.setEnabled(enabled);
+        createUserButton.setEnabled(enabled);
+        joinGroupButton.setEnabled(enabled);
+        loginButton.setEnabled(enabled);
+        autoLoginSwitch.setEnabled(enabled);
+    }
+
+    private void requestAuthenticate(String email, String password, final boolean autoLogin) {
+        JSONObject user = new JSONObject();
+        try {
+            user.put("email", email);
+            user.put("password", password);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            String msg = getResources().getString(R.string.error_general);
+            Toast.makeText(getActivity().getApplicationContext(),
+                    msg,
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Authentication URL
+        String url = Constants.DOMAIN + "/api/credentials/user";
+
+        // Create a request for user authentication
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, user,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        long userId;
+                        String accessToken;
+                        String refreshToken;
+
+                        // Get user id, access token and refresh token from the response
+                        try {
+                            userId = response.getLong("user_id");
+                            accessToken = response.getString("access_token");
+                            refreshToken = response.getString("refresh_token");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                            // Show an error message to the user
+                            String msg = getResources().getString(R.string.error_general);
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    msg,
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        // Create intent for main activity
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+
+                        // Save user id and refresh token if automatic login is enabled
+                        if (autoLogin) {
+                            enableAutoLogin(userId, refreshToken);
+                        } else {
+                            disableAutoLogin();
+                        }
+
+                        // Pass user id and access token to main activity
+                        Bundle b = new Bundle();
+                        b.putLong("user_id", userId);
+                        b.putString("access_token", accessToken);
+                        intent.putExtras(b);
+
+                        // Notify the user of a successful login
+                        String loginMsg = getResources().getString(R.string.success_login);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                loginMsg,
+                                Toast.LENGTH_LONG).show();
+
+                        // Change to main activity
+                        startActivity(intent);
+
+                        // Complete and destroy login activity once successful
+                        FragmentActivity loginActivity = getActivity();
+                        if (loginActivity != null) {
+                            loginActivity.finish();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse == null) {
+                    // Network error
+                    String msg = getResources().getString(R.string.error_general_network);
+                    Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                } else {
+                    // API error
+                    try {
+                        ApiError apiError = new ApiError(error.networkResponse.data);
+                        apiError.print();
+                        apiError.displayToUser(getActivity().getApplicationContext());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                // Enable all user actions
+                setActionsEnabled(true);
+            }
+        });
+
+        // Instantiate the RequestQueue.
+        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().getApplicationContext()).getRequestQueue();
+
+        // Add the request to the RequestQueue.
+        queue.add(request);
+    }
+
 }
