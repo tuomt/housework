@@ -25,11 +25,17 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.housework.MainActivity;
 import com.example.housework.R;
 import com.example.housework.api.ApiError;
+import com.example.housework.api.CachedJsonObjectRequest;
 import com.example.housework.api.Constants;
 import com.example.housework.api.ApiRequestHandler;
+import com.example.housework.data.User;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -217,9 +223,6 @@ public class LoginFragment extends Fragment {
                             return;
                         }
 
-                        // Create intent for main activity
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-
                         // Save user id and refresh token if automatic login is enabled
                         if (autoLogin) {
                             enableAutoLogin(userId, refreshToken);
@@ -227,26 +230,7 @@ public class LoginFragment extends Fragment {
                             disableAutoLogin();
                         }
 
-                        // Pass user id and access token to main activity
-                        Bundle b = new Bundle();
-                        b.putLong("user_id", userId);
-                        b.putString("access_token", accessToken);
-                        intent.putExtras(b);
-
-                        // Notify the user of a successful login
-                        String loginMsg = getResources().getString(R.string.success_login);
-                        Toast.makeText(getActivity().getApplicationContext(),
-                                loginMsg,
-                                Toast.LENGTH_LONG).show();
-
-                        // Change to main activity
-                        startActivity(intent);
-
-                        // Complete and destroy login activity once successful
-                        FragmentActivity loginActivity = getActivity();
-                        if (loginActivity != null) {
-                            loginActivity.finish();
-                        }
+                        requestUser(userId, accessToken);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -263,6 +247,10 @@ public class LoginFragment extends Fragment {
                         apiError.displayToUser(getActivity().getApplicationContext());
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        String msg = getResources().getString(R.string.error_general);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                msg,
+                                Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -278,4 +266,97 @@ public class LoginFragment extends Fragment {
         queue.add(request);
     }
 
+    private void requestUser(final long userId, final String accessToken) {
+        String url = Constants.DOMAIN + "/api/users/" + userId;
+
+        // Create a request for user data
+        CachedJsonObjectRequest request = new CachedJsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        long groupId = -1;
+
+                        if (!response.isNull("groups")) {
+                            // Get group id
+                            try {
+                                JSONArray groups = response.getJSONArray("groups");
+                                groupId = groups.getJSONObject(0).getLong("group_id");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        // Switch to main activity
+                        switchToMainActivity(userId, groupId, accessToken);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse == null) {
+                    // Network error
+                    String msg = getResources().getString(R.string.error_general_network);
+                    Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                } else {
+                    // API error
+                    try {
+                        ApiError apiError = new ApiError(error.networkResponse.data);
+                        apiError.print();
+                        apiError.displayToUser(getActivity().getApplicationContext());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        String msg = getResources().getString(R.string.error_general);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                msg,
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                // Auto login has to be disabled because the login operation failed
+                disableAutoLogin();
+            }
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() {
+                // Set Bearer token for the request
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + accessToken);
+                return headers;
+            }
+        };
+
+        // Instantiate the RequestQueue
+        final RequestQueue queue = ApiRequestHandler.getInstance(getActivity().getApplicationContext()).getRequestQueue();
+
+        // Add the request to the RequestQueue.
+        queue.add(request);
+    }
+
+    private void switchToMainActivity(long userId, long groupId, String accessToken) {
+        // Create intent for main activity
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+
+        // Pass user id, group id and access token to main activity
+        Bundle b = new Bundle();
+        b.putLong("user_id", userId);
+        b.putLong("group_id", groupId);
+        b.putString("access_token", accessToken);
+        intent.putExtras(b);
+
+        // Notify the user of a successful login
+        String loginMsg = getResources().getString(R.string.success_login);
+        Toast.makeText(getActivity().getApplicationContext(),
+                loginMsg,
+                Toast.LENGTH_LONG).show();
+
+        // Change to main activity
+        startActivity(intent);
+
+        // Complete and destroy login activity once successful
+        FragmentActivity loginActivity = getActivity();
+        if (loginActivity != null) {
+            loginActivity.finish();
+        }
+
+    }
 }
