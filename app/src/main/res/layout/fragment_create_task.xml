@@ -19,117 +19,126 @@
 
         <EditText
             android:id="@+id/etxt_task_name"
-            android:layout_width="387dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginBottom="892dp"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F8F5F5"
             android:gravity="center"
             android:hint="@string/hint_taskname"
-            android:textSize="30sp"
             android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:inputType="text" />
+            app:layout_constraintVertical_bias="0.02" />
 
         <Button
             android:id="@+id/btn_select_doers"
-            android:layout_width="230dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="98dp"
-            android:layout_marginBottom="804dp"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F0F4F4"
             android:text="@string/Btn_text_valitse_tekijat"
-
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/etxt_task_name"
+            app:layout_constraintVertical_bias="0" />
 
         <Button
             android:id="@+id/btn_recurrence"
-            android:layout_width="230dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="185dp"
-            android:layout_marginBottom="717dp"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F0F4F4"
             android:text="@string/toistuvus"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_doers"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/ettxt_task_desc"
-            android:layout_width="397dp"
-            android:layout_height="105dp"
-            android:layout_marginStart="73dp"
-            android:layout_marginTop="631dp"
-            android:layout_marginEnd="73dp"
-            android:layout_marginBottom="249dp"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F3ECEC"
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/hint_task_description"
+            android:importantForAutofill="no"
             android:inputType="textMultiLine"
-
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:importantForAutofill="no" />
+            app:layout_constraintTop_toBottomOf="@+id/calendar_create_task"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btn_use_saved"
-            android:layout_width="230dp"
-            android:layout_height="71dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="758dp"
-            android:layout_marginEnd="114dp"
-            android:layout_marginBottom="144dp"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F0F4F4"
             android:text="@string/ota_k_ytt_n_vanha_teht_v"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ettxt_task_desc"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btn_create_task"
-            android:layout_width="227dp"
-            android:layout_height="61dp"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
             android:background="#F0F4F4"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="850dp"
-            android:layout_marginEnd="115dp"
-            android:layout_marginBottom="62dp"
             android:text="@string/luo_teht_v"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_use_saved"
+            app:layout_constraintVertical_bias="0.0" />
 
         <CalendarView
             android:id="@+id/calendar_create_task"
-            android:layout_width="399dp"
-            android:layout_height="314dp"
-            android:layout_marginTop="288dp"
-            android:layout_marginBottom="371dp"
+            android:layout_width="0dp"
+            android:layout_height="320dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="#F8F0F0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_recurrence"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
