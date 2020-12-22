@@ -14,64 +14,63 @@
 
     <Button
         android:id="@+id/btn_modify_group_members"
-        android:layout_width="196dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:text="@string/vaihda_oikeuksia"
         android:textColor="#020202"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintTop_toBottomOf="@+id/scroll_view_group_members"
+        app:layout_constraintVertical_bias="0.2" />
 
     <Button
         android:id="@+id/btn_change_group_password"
-        android:layout_width="196dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:text="@string/muuta_salasanaa"
         android:textColor="#050505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.757" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_modify_group_members"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/txt_group_members"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/scroll_view_group_members"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt_group_name_edit_group" />
-
-    <ScrollView
-        android:id="@+id/scroll_view_group_members"
-        android:layout_width="350dp"
-        android:layout_height="201dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="278dp"
-        android:background="#FFFFFF"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727">
+        app:layout_constraintTop_toBottomOf="@+id/etxt_group_name_edit_group"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/scroll_view_group_members"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/layout_group_members"
@@ -82,11 +81,13 @@
 
     <EditText
         android:id="@+id/etxt_group_name_edit_group"
-        android:layout_width="339dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
         android:background="#FFFFFFFF"
         android:enabled="false"
         android:hint="@string/prompt_group_name"
+        android:importantForAutofill="no"
+        android:inputType="text"
         android:textAlignment="center"
         android:textColor="#040303"
         android:textSize="24sp"
@@ -95,8 +96,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028"
-        android:importantForAutofill="no"
-        android:inputType="text" />
+        app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
